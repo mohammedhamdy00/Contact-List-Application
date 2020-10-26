@@ -1,0 +1,225 @@
+
+
+@font-face {
+    font-family: 'OpenSansRg';
+    src: url(../Fonts/OpenSans-Regular.ttf);
+  }
+  @font-face {
+    font-family: 'OpenSansBdSmi';
+    src: url(../Fonts/OpenSans-SemiBold.ttf);
+  }
+  @font-face {
+    font-family: 'OpenSansLt';
+    src: url(../Fonts/OpenSans-Light.ttf);
+  }
+  @mixin regularTxtBox {
+    font-family: 'OpenSansRg';
+    font-size: 13px;
+    padding: 5%;
+  }
+  @mixin boldTxtBox {
+    font-family: 'OpenSansBdSmi' !important;
+    text-align: center!important;
+    display: block;
+
+  }
+@mixin alignedFlxBox {
+    display: flex;
+    -webkit-box-align: center!important;
+    -ms-flex-align: center!important;
+    align-items: center!important;
+}
+@mixin actionBtn {
+    background: transparent !important;
+    box-shadow: none !important;
+    padding: 2% 4% !important;
+    font-size: 10px !important;
+    border: 1px solid #4d4d4d !important;
+    color: #333 !important;
+    font-family: 'OpenSansLt' !important;
+}
+
+
+/*Home*/
+.HomePage{
+.AddContactBtn{
+    position: fixed;
+    z-index: 99;
+    right: 1%;
+    background: #e60000;
+    width: 50px;
+    top: 80%;
+    height: 50px;
+    padding: 0 !important;
+    border-radius: 50%;
+    box-shadow: none !important;
+    span{
+        color: #fff;
+        font-weight: 300;
+        font-size: 30px;
+        font-family: 'OpenSansRg';
+    }
+}
+.contactFilter{
+    @include boldTxtBox;
+    margin: 2% 0;
+    .contactFilterItem {
+        background: transparent !important;
+        box-shadow: none !important;
+        padding: 0 !important;
+        font-size: 16px !important;
+        span{
+            margin: 0 1%;
+        }
+        &:hover{
+            color: #e60000;
+        }
+        &.active{
+            color: #e60000;  
+        }
+    }
+}
+
+/*Contact Item*/
+.cardBox{
+    display: inline-block;
+    margin-bottom: 2%;
+
+.card-title {
+    @include regularTxtBox;
+    margin-bottom: 0 !important;
+}
+.card-body{
+    @include regularTxtBox;
+}
+p{
+    margin-bottom: .2rem;
+}
+}
+}
+
+/*General Form*/
+form{
+    margin: 3% 0;
+.form-group{
+    margin-bottom: 1rem;
+    width: 60%;
+    margin: 0 auto;
+
+    .field {
+        display: block;
+        margin: 0 auto;
+        margin-bottom: 2%;
+    
+        label{
+            width: max-content;
+            margin-right: 3%;
+        }
+        input{
+            display: inline-block !important;
+            width: 80% !important;
+        }
+        .fieldValue{
+            display: inline-block;
+        }
+    }
+
+}
+}
+/*End of General Form*/
+/*Buttons*/
+
+.saveBtn{
+    @include actionBtn;
+    margin-left: 15%;
+
+}
+.deleteBtn{
+    @include actionBtn;
+    border: 1px solid #e60000 !important;
+    color: #e60000 !important;
+}
+.editBtn{
+    @include actionBtn;
+    
+}
+/*End of Buttons*/
+
+ /*Header*/
+ .headerContainer{
+    @include alignedFlxBox;
+    height: 60px;
+    .row{
+        width: 100%;
+    }
+   .logo{
+       height: 46px;
+       width: auto;
+   }
+   .searchBoxContainer{
+       @include alignedFlxBox;
+
+   .searchBox{
+       width: 50%;
+       right: 0;
+       position: absolute;
+   }
+}
+}
+.PageTitle{
+   @include boldTxtBox;
+font-weight: bold;
+height: 45px;
+margin: 30px 0 2px 0;
+font-size: 30px;
+
+&::after {
+   background-color: #e60000;
+   content: '';
+   display: block;
+   height: 3px;
+   left: 50%;
+   position: absolute;
+   transform: translate(-50%, 0);
+   width: 35px;
+}
+p{
+   margin-bottom: 3px !important;
+}
+}
+/*End of Header*/
+/*Footer*/
+.page-footer{
+   margin-top: 0 !important;
+   padding-top: 0 !important;
+   height: 60px !important;
+   .Darkcolor{
+    color:#333 !important
+}
+}
+/*End of Footer*/
+
+@media (max-width: 575.98px) {
+    .searchBox{
+        width: 100% !important;
+    }
+    .ViewPage{
+    form{
+        margin: 10% 0;
+        .form-group{
+            width: 65% !important;
+        }
+    }
+}
+.CreatePage,.EditPage{
+    form{
+        margin: 10% 0;
+        .form-group{
+            width: 90% !important;
+        }
+    }
+}
+.HomePage .contactFilter {
+    margin: 5% 0 3% 0;
+}
+}

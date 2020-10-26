@@ -1,0 +1,58 @@
+{
+  "contacts": [
+    {
+      "id": 1,
+      "first_name": "Hussien11",
+      "email": "customer1@mail.com",
+      "phone": "00000000000"
+    },
+    {
+      "id": 2,
+      "first_name": "mohammed hamdy",
+      "email": "customer2@mail.com",
+      "phone": "01116851856"
+    },
+    {
+      "id": 3,
+      "first_name": "ramy",
+      "email": "contact3@mail.com",
+      "phone": "00000000000"
+    },
+    {
+      "id": 4,
+      "first_name": "malah",
+      "email": "contact4@mail.com",
+      "phone": "00000000000"
+    },
+    {
+      "id": 5,
+      "first_name": "beshoy",
+      "email": "contact5@mail.com",
+      "phone": "00000000000"
+    },
+    {
+      "id": 6,
+      "first_name": "galal",
+      "email": "contact6@mail.com",
+      "phone": "00000000000"
+    },
+    {
+      "first_name": "Asmaayy",
+      "email": "contact7@mail.com",
+      "phone": "01116851856",
+      "id": 7
+    },
+    {
+      "first_name": "sww",
+      "email": "contact8@mail.com",
+      "phone": "12345678907",
+      "id": 8
+    },
+    {
+      "first_name": "mohammed",
+      "email": "contact9@mail.com",
+      "phone": "12345678911",
+      "id": 9
+    }
+  ]
+}
