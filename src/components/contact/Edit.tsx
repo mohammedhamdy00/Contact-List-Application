@@ -2,15 +2,13 @@ import * as React from 'react';
 import { RouteComponentProps, withRouter } from 'react-router-dom';
 import axios from 'axios';
 import { MDBCol, MDBContainer, MDBRow } from 'mdbreact';
-export interface IValues {
-    [key: string]: any;
-}
+
 export interface IFormState {
     id: number,
     contact: any;
-    values: IValues[];
+    values:any[];
     submitSuccess: boolean;
-    loading: boolean;
+
 }
 class EditContact extends React.Component<RouteComponentProps<any>, IFormState> {
     constructor(props: RouteComponentProps) {
@@ -19,7 +17,6 @@ class EditContact extends React.Component<RouteComponentProps<any>, IFormState> 
             id: this.props.match.params.id,
             contact: {},
             values: [],
-            loading: false,
             submitSuccess: false,
         }
     }
@@ -31,16 +28,15 @@ class EditContact extends React.Component<RouteComponentProps<any>, IFormState> 
  //Edit Contact with Contact id
     private processFormSubmission = async (e: React.FormEvent<HTMLFormElement>): Promise<void> => {
         e.preventDefault();
-        this.setState({ loading: true });
         axios.patch(`http://localhost:5000/contacts/${this.state.id}`, this.state.values).then(data => {
-            this.setState({ submitSuccess: true, loading: false })
+            this.setState({ submitSuccess: true})
             setTimeout(() => {
                 this.props.history.push('/');
             }, 1500)
         })
     }
 
-    private setValues = (values: IValues) => {
+    private setValues = (values: any) => {
         this.setState({ values: { ...this.state.values, ...values } });
     }
     private handleInputChanges = (e: React.FormEvent<HTMLInputElement>) => {
@@ -48,7 +44,7 @@ class EditContact extends React.Component<RouteComponentProps<any>, IFormState> 
         this.setValues({ [e.currentTarget.id]: e.currentTarget.value })
     }
     public render() {
-        const { submitSuccess, loading } = this.state;
+        const { submitSuccess } = this.state;
         return (
             <MDBContainer className="EditPage">
                 <MDBRow className="PageTitle">

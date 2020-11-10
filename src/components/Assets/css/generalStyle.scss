@@ -77,8 +77,10 @@
         span{
             margin: 0 1%;
             &.active{
-                color: #e60000;  
+                color: #e60000; 
+           
             }
+            
         }
         &:hover{
             color: #e60000;
@@ -171,8 +173,6 @@ form{
 }
 /*End of Buttons*/
 .searchBoxContainer{
-    display: block !important;
-    align-items: center !important;
     position: absolute;
     width: 25%;
     right: 8%;

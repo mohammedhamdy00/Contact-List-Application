@@ -11,7 +11,7 @@ export interface IFormState {
     [key: string]: any;
     values: IValues[];
     submitSuccess: boolean;
-    loading: boolean;
+
 }
 class CreateContact extends React.Component<RouteComponentProps, IFormState> {
     constructor(props: RouteComponentProps) {
@@ -21,20 +21,20 @@ class CreateContact extends React.Component<RouteComponentProps, IFormState> {
             email: '',
             phone: '',
             values: [],
-            loading: false,
+          
             submitSuccess: false,
         }
     }
     //add new Contact throw Post and back to home page 
     private processFormSubmission = (e: React.FormEvent<HTMLFormElement>): void => {
         e.preventDefault();
-        this.setState({ loading: true });
+        
         const formData = {
             first_name: this.state.first_name,
             email: this.state.email,
             phone: this.state.phone,
         }
-        this.setState({ submitSuccess: true, values: [...this.state.values, formData], loading: false });
+        this.setState({ submitSuccess: true, values: [...this.state.values, formData]});
         axios.post(`http://localhost:5000/contacts`, formData).then(data => [
             setTimeout(() => {
                 this.props.history.push('/');
@@ -49,7 +49,7 @@ class CreateContact extends React.Component<RouteComponentProps, IFormState> {
         })
     }
     public render() {
-        const { submitSuccess, loading } = this.state;
+        const { submitSuccess } = this.state;
         return (
             <MDBContainer className="CreatePage">
                   <MDBRow className="PageTitle">

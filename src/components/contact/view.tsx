@@ -11,7 +11,7 @@ export interface IFormState {
     contacts: any[],
     values: IValues[];
     submitSuccess: boolean;
-    loading: boolean;
+    
 }
 class ViewContact extends React.Component<RouteComponentProps<any>, IFormState> {
     constructor(props: RouteComponentProps) {
@@ -21,7 +21,7 @@ class ViewContact extends React.Component<RouteComponentProps<any>, IFormState> 
             contact: {},
             contacts: [],
             values: [],
-            loading: false,
+    
             submitSuccess: false,
         }
     }
@@ -34,22 +34,8 @@ class ViewContact extends React.Component<RouteComponentProps<any>, IFormState> 
 
     private processFormSubmission = async (e: React.FormEvent<HTMLFormElement>): Promise<void> => {
         e.preventDefault();
-        this.setState({ loading: true });
-        axios.patch(`http://localhost:5000/contacts/${this.state.id}`, this.state.values).then(data => {
-            this.setState({ submitSuccess: true, loading: false })
-            setTimeout(() => {
-                this.props.history.push('/');
-            }, 1500)
-        })
     }
 
-    private setValues = (values: IValues) => {
-        this.setState({ values: { ...this.state.values, ...values } });
-    }
-    private handleInputChanges = (e: React.FormEvent<HTMLInputElement>) => {
-        e.preventDefault();
-        this.setValues({ [e.currentTarget.id]: e.currentTarget.value })
-    }
     //get contact id to delete Contact
     public deleteCustomer(id: number) {
         axios.delete(`http://localhost:5000/contacts/${id}`).then(data => {
@@ -59,7 +45,7 @@ class ViewContact extends React.Component<RouteComponentProps<any>, IFormState> 
         })
     }
     public render() {
-        const { submitSuccess, loading } = this.state;
+        const { submitSuccess} = this.state;
         return (
             <MDBContainer className="ViewPage">
                 <MDBRow className="PageTitle">
